@@ -16,7 +16,7 @@ services:
     build:
       context: ../DailyHot
       args:
-        - VITE_GLOBAL_API=http://localhost:6688
+        - VITE_GLOBAL_API=https://dailyhotapi-production-6709.up.railway.app
     ports:
       - "6689:80"
     depends_on:

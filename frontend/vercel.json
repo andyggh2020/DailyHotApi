@@ -1,3 +1,9 @@
 {
-  "rewrites": [{ "source": "/:path*", "destination": "/index.html" }]
+  "buildCommand": "pnpm build",
+  "installCommand": "npm install -g pnpm && pnpm install",
+  "outputDirectory": "dist",
+  "rewrites": [{ "source": "/:path*", "destination": "/index.html" }],
+  "env": {
+    "VITE_GLOBAL_API": "https://dailyhotapi-production-6709.up.railway.app"
+  }
 }
