@@ -1,30 +1,22 @@
 <template>
   <footer>
-    <div class="copyright">
-      <n-text class="description" v-html="packageJson.description" />
+    <div class="links">
       <n-text
-        class="author"
+        class="link-item"
         :depth="3"
-        v-html="packageJson.author"
-        @click="jumpLink(packageJson.github)"
-      />
+        @click="jumpLink('https://ai-passage-creator-main-git-main-andyggh2020s-projects.vercel.app/')"
+      >AI文章创作器</n-text>
+      <span class="divider">·</span>
+      <n-text
+        class="link-item"
+        :depth="3"
+        @click="jumpLink('https://media-creator-master-bfcicu56k-andyggh2020s-projects.vercel.app/')"
+      >AI内容工厂</n-text>
     </div>
-    <n-text
-      v-if="icp"
-      :depth="3"
-      class="icp"
-      v-html="icp"
-      @click="jumpLink('https://beian.miit.gov.cn/')"
-    />
   </footer>
 </template>
 
 <script setup>
-import packageJson from "@/../package.json";
-
-const icp = ref(import.meta.env.VITE_ICP ? import.meta.env.VITE_ICP : null);
-
-// 链接跳转
 const jumpLink = (url) => {
   window.open(url);
 };
@@ -32,7 +24,7 @@ const jumpLink = (url) => {
 
 <style lang="scss" scoped>
 footer {
-  height: 100px;
+  height: 60px;
   padding: 0 5vw;
   max-width: 1800px;
   margin: 20px auto 0;
@@ -40,29 +32,21 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .copyright {
-    margin-bottom: 4px;
-    .description {
-      &::after {
-        content: "@ Copyright By";
-        margin: 0 6px;
-      }
-    }
-  }
-  .author {
-    cursor: pointer;
-    transition: all 0.3s;
-    &:hover {
-      color: var(--n-code-text-color);
-    }
-  }
-  .icp {
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 13px;
+  }
+  .link-item {
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
       color: var(--n-code-text-color);
     }
+  }
+  .divider {
+    opacity: 0.4;
   }
 }
 </style>

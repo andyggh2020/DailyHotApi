@@ -10,6 +10,7 @@ import registry from "./registry.js";
 import robotstxt from "./robots.txt.js";
 import NotFound from "./views/NotFound.js";
 import Home from "./views/Home.js";
+import Docs from "./views/Docs.js";
 import Error from "./views/Error.js";
 
 const app = new Hono();
@@ -55,6 +56,8 @@ app.route("/", registry);
 app.get("/robots.txt", robotstxt);
 // 首页
 app.get("/", (c) => c.html(<Home />));
+// 文档
+app.get("/docs", (c) => c.html(<Docs />));
 // 404
 app.notFound((c) => c.html(<NotFound />, 404));
 // error
